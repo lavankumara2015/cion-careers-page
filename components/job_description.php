@@ -46,6 +46,8 @@ if ($result->num_rows > 0) {
         $skill_required = $row["skill_required"];
 ?>
 
+
+
 <h1 class="role-text-h1"><?php echo $role ?> Role </h1>
     <div class="vaccine-container">
         <div class="vaccine-container__department">
@@ -90,11 +92,32 @@ if ($result->num_rows > 0) {
         </div>
         <div class="vaccine-container__job-description">
             <h2>Job Description</h2>
-            <p><?php echo $job_description ?></p>
+            <?php
+            $string =  $job_description;
+            $delimiter = "."; 
+            $parts = explode($delimiter, $string);
+            array_pop($parts);
+
+            ?>
+            <ul>
+                <?php foreach ($parts as $part) {
+                echo  "<li>$part</li>";
+            }  ?>
+            </ul>
         </div>
         <div class="vaccine-container__skill-required">
             <h2>Skill-Required</h2>
-            <p><?php echo $skill_required ?></p>
+            <?php
+            $strings = $skill_required;
+            $delimiters = "."; 
+            $parts1 = explode($delimiters, $strings);
+            array_pop($parts1);
+            ?>
+            <ul>
+                <?php foreach ($parts1 as $part1) {
+                echo  "<li>$part1</li>";
+            }  ?>
+            </ul>
         </div>
     </div>
     <center><button onclick="helper()" class="vaccine-container__btn">Apply Now</button></center>

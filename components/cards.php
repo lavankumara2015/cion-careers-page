@@ -29,7 +29,7 @@ if ($result->num_rows > 0) {
 ?>
             <div class="card">
                 <a class="card__anchor" href="./components/job_description.php?id=<?php echo $id; ?>">
-                    <img class="card__image" src="<?php echo $image; ?>" alt="image" />
+                    <img class="card__image" src="../assets/role-icon/<?php echo $image;?>" alt="image" />
                     <h3 class="card__text-h3"><?php echo $role; ?></h3>
                     <p class="card__location">@<?php echo $location;?></p>
                     <p class="card__role-overview"><?php echo $role_overview;?>&nbsp;<b class="card__read-more">Read more</b></p>

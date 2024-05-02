@@ -1,3 +1,85 @@
+.application-form__h2 {
+    font-size: 0.8rem;
+    text-align: center;
+    color: var(--brandClr);
+    margin-top: 0.8rem;
+}
+.name,
+.dob,
+.highest_graduation,
+.graduation_year,
+.cgpa,
+.current_address,
+.mobile_number,
+.reason_for_applying,
+.cv_uploaded {
+    font-size: 0.45rem;
+    font-weight: 600;
+    padding: 1rem; 
+    margin: 0.6rem 0; 
+    width: 100%; 
+    box-sizing: border-box; 
+}
+
+form input , textarea{
+    padding: 0.15rem;
+    width: 5rem;
+    border: 0.05rem solid var(--brandClr);
+    border-radius: 0.2rem;
+    font-size: 0.4rem;
+    outline: none !important;
+}
+
+#name{
+    margin-left: 1.80rem;
+}
+#dob{
+    margin-left: 0.52rem;
+}
+#highest_graduation{
+    margin-right: 0.9rem;
+    position: relative;
+    right: 0.8rem;
+}
+#graduation_year{
+    margin-right: 1.5rem;
+    position: relative;
+    right: 0.16rem;
+}
+#cgpa{
+    margin-left: 1.92rem;
+}
+#current_address{
+    margin-right: 0.9rem;
+    position: relative;
+    right: 0.15rem;
+}
+#mobile_number{
+    margin-right: 0.75rem;
+    position: relative;
+    right: 0.035rem;
+}
+#reason_for_applying{
+ 
+    width: 10rem;
+    height: 3rem;
+    margin-left: 1.05rem;
+}
+#cv_uploaded{
+    margin-left: 0.97rem;
+    
+}
+.form-btn{
+    border: none !important;
+    background-color: var(--brandClr);
+    color: white;
+    font-size: 0.5rem;
+    padding: 0rem !important;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    width: 3rem !important;
+  cursor: pointer;
+}
 
 
 @media screen and (min-width: 768px) {
@@ -78,7 +160,7 @@
         margin-top: 1rem;
         margin-bottom: 1rem;
         width: 3rem !important;
-      
+      cursor: pointer;
     }
 
 }

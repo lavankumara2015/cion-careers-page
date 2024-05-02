@@ -1,0 +1,109 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
+
+* {
+  font-family: "Source Sans 3", sans-serif;
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+  user-select: none;
+}
+
+html {
+  font-size: 5.31vw;
+  /* font-size:22px */
+}
+
+:root {
+  --brandClr: #802a8f;
+  --pinkClr: #f0d0dd;
+  --pinkClr2: #f0d0dc;
+  --blackColor: #000;
+  --whiteColor: #fff;
+  --brandclr: #802a8f;
+  --whycioncardbg: #d37fa0;
+  --colorBlack: #444444;
+  --ourServicesGrayClr: #979797;
+  --FindOurLocationsbgclr: #fbe4ff;
+  --ourservicesCardBorderClr: #d5d5d5;
+  --ourDoctorsBoxShadow: 16px 18px 45px 0px #00000026;
+}
+
+.main-app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+}
+
+::-webkit-scrollbar{
+    width: 0.15rem;
+    height: 2rem !important;
+  }
+  
+  ::-webkit-scrollbar-track{
+  
+  }
+  ::-webkit-scrollbar-thumb{
+    background-color:var(--brandClr) !important;
+  border-radius: 1rem;
+  
+  }
+
+@media screen and (min-width: 768px) {
+  html {
+    font-size: 2.76vw;
+    /* font-size: 53px; */
+  }
+
+  .main-app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100% !important;
+  }
+  label{
+font-size: 0.8rem;
+  }
+ .role-details-container{ 
+  width: 80%;
+  margin-left: 4rem;
+  box-shadow: 0 0.0377rem 0.41rem 0 rgba(0, 0, 0, 0.07);
+  padding: 1.5rem;   
+  margin-top: 1.5rem;
+ }
+ .role-text-h1{
+    font-size: 1rem;
+    color: var(--brandClr);
+    margin: 0.8rem 0rem 0.5rem 2rem;
+  }
+  .role-image-logo{
+    width: 2rem;
+    cursor: pointer;
+  }
+ 
+#myDialog{
+  justify-self: center !important;
+  align-self: center !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: 0 0.0377rem 0.41rem 0 rgba(0, 0, 0, 0.07);
+  border-radius: 0.2rem;
+  background-color: rgb(255, 255, 255) !important;
+
+  }
+  .myDialog-container{
+    width: 8rem;
+    height: 3.5rem;
+    padding: 0.11rem 0 0 0.1rem;
+    margin-top: 0.1rem;
+  }
+  .myDialog-container img{
+    width: 1rem;
+    height: 1rem;
+   margin: 0.15rem;
+   cursor: pointer;
+    }
+    .myDialog-container img:hover{
+      background-color: rgb(240, 206, 211);
+    }
+}
