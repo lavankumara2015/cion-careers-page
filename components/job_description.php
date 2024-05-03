@@ -15,21 +15,16 @@
 
 <?php include("./navBar/navBar.php") ?>
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "cion_careers";
-$conn = new mysqli($servername, $username, $password, $database);
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+include("./connectDB.php");
 
 $id = $_GET['id'];
+
+
 
 $sql = "SELECT department,role,job_id,location,experience,qualification,reports_to,time_of_work,salary,company_profile,skill_required,job_description FROM careers WHERE id = $id";
 
 $result = $conn->query($sql);
-
+$department = null ;
 if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()){
         $department = $row["department"];
@@ -44,6 +39,10 @@ if ($result->num_rows > 0) {
         $company_profile = $row["company_profile"];
         $job_description = $row["job_description"];
         $skill_required = $row["skill_required"];
+
+session_start();
+$_SESSION['department'] = $department;
+
 ?>
 
 
@@ -119,30 +118,36 @@ if ($result->num_rows > 0) {
             }  ?>
             </ul>
         </div>
+      
     </div>
+
     <center><button onclick="helper()" class="vaccine-container__btn">Apply Now</button></center>
     
-    
     <dialog id="myDialog">
-     
     <div class="myDialog-container">
-        <?php include("./applicationSubmit/applicationSubmit.php") ?>
+        <?php include("./applicationSubmit/applicationSubmit.php");?>
+        
     </div>
-
-
     </dialog>
-
     <script>
 
+        const dialog = document.getElementById("myDialog")
+
 function helper() { 
-  document.getElementById("myDialog").showModal(); 
+    dialog.showModal(); 
   window.onclick = function(event) {
     var dialog = document.getElementById("myDialog");
     if (event.target == dialog) {
       dialog.close();
     }
   }
-} 
+}  
+
+   const cancel_btn = document.getElementById("cancel-btn")
+    cancel_btn.addEventListener("click",()=>{
+        dialog.close();
+    })
+    
     </script>
 <?php
     }

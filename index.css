@@ -121,12 +121,12 @@ border-radius: 1rem;
  right: 1rem;
 }
 .vaccine-container__btn{
-padding: 0.3rem;
+padding: 0.2rem;
 background-color: var(--brandClr);
 color: white;
 border: none;
 outline: none;
-font-size: 0.6rem;
+font-size: 0.5rem;
 border-radius: 0.2rem;
 margin-top: 1rem;
 margin-bottom: 1rem;

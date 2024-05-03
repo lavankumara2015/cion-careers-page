@@ -28,7 +28,12 @@ form input , textarea{
     border-radius: 0.2rem;
     font-size: 0.4rem;
     outline: none !important;
+   
 }
+form{
+    margin-left: 0.6rem;
+}
+
 
 #name{
     margin-left: 1.80rem;
@@ -47,7 +52,7 @@ form input , textarea{
     right: 0.16rem;
 }
 #cgpa{
-    margin-left: 1.92rem;
+    margin-left: -0.35rem !important;
 }
 #current_address{
     margin-right: 0.9rem;
@@ -80,6 +85,15 @@ form input , textarea{
     width: 3rem !important;
   cursor: pointer;
 }
+#cancel-btn{
+    width: 0.7rem;
+    height: 0.7rem;
+    float: right;
+    position: relative;
+    right: 0.3rem;
+bottom: 0.1rem;
+ cursor: pointer;
+}
 
 
 @media screen and (min-width: 768px) {
@@ -100,7 +114,7 @@ form input , textarea{
     .cv_uploaded {
         font-size: 0.45rem;
         font-weight: 600;
-        padding: 1rem; 
+        padding: 0.65rem; 
         margin: 0.6rem 0; 
         width: 100%; 
         box-sizing: border-box; 
@@ -111,6 +125,7 @@ form input , textarea{
         width: 5rem;
         border: 0.05rem solid var(--brandClr);
         border-radius: 0.2rem;
+        margin-top: 0.5rem;
     }
     #name{
         margin-left: 1.80rem;
@@ -145,7 +160,10 @@ form input , textarea{
      
         width: 10rem;
         height: 3rem;
-        margin-left: 1.05rem;
+        margin-left: 0.5rem;
+    }
+    form textarea{
+resize: none;
     }
     #cv_uploaded{
         margin-left: 0.97rem;

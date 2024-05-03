@@ -1,13 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
-
 * {
   font-family: "Source Sans 3", sans-serif;
   margin: 0;
   box-sizing: border-box;
   padding: 0;
-  user-select: none;
 }
-
 html {
   font-size: 5.31vw;
   /* font-size:22px */
@@ -17,15 +14,6 @@ html {
   --brandClr: #802a8f;
   --pinkClr: #f0d0dd;
   --pinkClr2: #f0d0dc;
-  --blackColor: #000;
-  --whiteColor: #fff;
-  --brandclr: #802a8f;
-  --whycioncardbg: #d37fa0;
-  --colorBlack: #444444;
-  --ourServicesGrayClr: #979797;
-  --FindOurLocationsbgclr: #fbe4ff;
-  --ourservicesCardBorderClr: #d5d5d5;
-  --ourDoctorsBoxShadow: 16px 18px 45px 0px #00000026;
 }
 
 .main-app {
@@ -62,23 +50,29 @@ html {
     width: 100% !important;
   }
   label{
-font-size: 0.8rem;
+font-size: 0.7rem;
+margin-left: 0.8rem;
+font-weight: 600;
   }
  .role-details-container{ 
   width: 80%;
   margin-left: 4rem;
   box-shadow: 0 0.0377rem 0.41rem 0 rgba(0, 0, 0, 0.07);
   padding: 1.5rem;   
-  margin-top: 1.5rem;
+  margin-top: 1.2rem;
+  margin-bottom: 2rem;
  }
  .role-text-h1{
-    font-size: 1rem;
+    font-size: 0.9rem;
     color: var(--brandClr);
     margin: 0.8rem 0rem 0.5rem 2rem;
   }
   .role-image-logo{
-    width: 2rem;
+    width: 1rem;
     cursor: pointer;
+    position: relative;
+        left: 0.35rem;
+        top: 0.5rem;
   }
  
 #myDialog{
@@ -96,6 +90,7 @@ font-size: 0.8rem;
     height: 3.5rem;
     padding: 0.11rem 0 0 0.1rem;
     margin-top: 0.1rem;
+    display: block !important;
   }
   .myDialog-container img{
     width: 1rem;
@@ -106,4 +101,113 @@ font-size: 0.8rem;
     .myDialog-container img:hover{
       background-color: rgb(240, 206, 211);
     }
+    #role-logo-div-container{
+      width: 1.2rem;
+      height: 1.2rem;
+      border: 1px solid var(--brandClr);
+      position: relative;
+      left: 6rem;
+      bottom: 0.9rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    form input{
+      padding: 0.2rem;
+      border: 0.009rem solid var(--brandClr);
+      border-radius: 0.1rem;
+      outline: none;
+      margin: 0.5rem;
+      width: 5.5rem;
+    font-size: 0.4rem;
+    }
+ 
+    #role{
+      margin-left: 3.7rem;
+    }
+    .role{
+      margin-left: 2rem;
+    }
+    #job_id{
+      margin-left: 2.2rem;
+    }
+    #location{
+      margin-left: 2.5rem;
+    }
+    .location{
+      margin-left: 2rem;
+    }
+
+    #experience{
+      margin-left: 0.86rem;
+    }
+     #qualification{
+      margin-left: 1.3rem;
+    }
+    .qualification{
+      margin-left: 2rem;
+    }
+
+    #reports_to{
+     margin-left: 0.95rem;    
+    }
+  
+    #time_of_work{
+      margin-left: 1.2rem;
+    }
+    .time_of_work{
+      margin-left: 1.97rem;
+    }
+    #salary{
+      margin-left: 2.25rem;
+    }
+    #company_profile{
+      position: relative;
+      right: 0.3rem;
+    }
+    .company_profile{
+      margin-left: 1.95rem;
+    }
+   
+    #hiring_manager{
+    margin-left: 1.25rem;
+    }
+    #hiring_manager_email{
+    margin-left:  2.2rem;
+    }
+    .hiring_manager_email{
+      margin-left: 2rem;
+    }
+    #role_overview{
+      margin-left: 1.3rem;
+    }
+    .role-image{
+      position: relative;
+      top: 0.2rem;
+    }
+  
+    form textarea{
+      border: 0.009rem solid var(--brandClr);
+    resize: none;
+    outline: none;
+    padding: 0.5rem;
+   border-radius: 0.1rem;
+   margin-left: 1.5rem;
+   width: 88.25%;
+   height: 5rem;
+   margin-top: 0.2rem;
+   font-size: 0.5rem;
+    }
+    #submit-btn{
+    background-color: var(--brandClr);
+    color: white;
+    font-size: 0.55rem;
+    padding: 0.20rem !important;
+    margin-top: 1.5rem;
+    cursor: pointer;
+    width: 3.5rem;
+    border-radius: 0.2rem;
+    }
+    
+
 }

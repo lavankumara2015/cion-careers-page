@@ -1,13 +1,6 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $database = "cion_careers";
-    $conn = new mysqli($servername, $username, $password, $database);
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
+   include("./components/connectDB.php");
 $department = htmlspecialchars($_POST['department'] ?? '');
 $role = htmlspecialchars($_POST['role'] ?? '');
 $job_id = htmlspecialchars($_POST['job_id'] ?? '');
@@ -47,106 +40,93 @@ if ($stmt->execute()) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Roles-details</title>
     <link rel="shortcut icon" href="./assets/favicon.webp" type="image/x-icon">
-<link rel="stylesheet" href="./index2.css">
-<link rel="stylesheet" href="./components/navBar/navbar.css">
+    <link rel="stylesheet" href="./index2.css">
+    <link rel="stylesheet" href="./components/navBar/navbar.css">
 
 </head>
 <body>
 
 <?php include("./components/navBar/navBar.php") ?>
 
-<h1 class="role-text-h1">Fill Role-Details</h1>
+<h1 class="role-text-h1">Fill Role Requirements</h1>
 
 <div class="role-details-container">
 <form action="" method="POST" enctype="multipart/form-data">
-    <label for="department">Department:</label>
-    <input type="text" id="department" name="department" required>
+    <label for="department" >Department:</label>
+    <input type="text" id="department" name="department" placeholder="Enter Department" required>
 
-    <label for="role">Role:</label>
-    <input type="text" id="role" name="role" required><br>
+    <label for="role" class="role">Role:</label>
+    <input type="text" id="role" name="role" placeholder="Enter Role" required><br>
 
     <label for="job_id">Job ID:</label>
-    <input type="text" id="job_id" name="job_id" required>
+    <input type="text" id="job_id" name="job_id" placeholder="Enter Job-id" required>
 
-    <label for="location">Location:</label>
-    <input type="text" id="location" name="location" required><br>
+    <label for="location" class="location">Location:</label>
+    <input type="text" id="location" name="location" placeholder="Enter Location" required><br>
 
     <label for="experience">Experience:</label>
-    <input type="text" id="experience" name="experience" required>
+    <input type="text" id="experience" name="experience" placeholder=" Enter Experience" required>
 
-    <label for="qualification">Qualification:</label>
-    <input type="text" id="qualification" name="qualification" required><br>
+    <label for="qualification" class="qualification">Qualification:</label>
+    <input type="text" id="qualification" name="qualification" placeholder="Enter Qualification" required><br>
 
-    <label for="reports_to">Reports To:</label>
-    <input type="text" id="reports_to" name="reports_to">
+    <label for="reports_to" class="reports_to">Reports To:</label>
+    <input type="text" id="reports_to" name="reports_to" placeholder="Enter Report-To">
 
-    <label for="time_of_work">Time of Work:</label>
-    <input type="text" id="time_of_work" name="time_of_work" required><br>
+    <label for="time_of_work" class="time_of_work">Time of Work:</label>
+    <input type="text" id="time_of_work" name="time_of_work" required placeholder="Enter Time-of-work"><br>
 
     <label for="salary">Salary:</label>
-    <input type="text" id="salary" name="salary" required>
+    <input type="text" id="salary" name="salary" placeholder="Enter Salary" required>
   
-    <label for="company_profile">Company Profile:</label>
-    <input id="company_profile" name="company_profile" required><br>
+    <label for="company_profile" class="company_profile">Company Profile:</label>
+    <input id="company_profile" name="company_profile" placeholder="Enter Company-Profile" required><br>
 
-    <label for="hiring_manager">Hiring Manager:</label>
-    <input type="text" id="hiring_manager" name="hiring_manager" required>
+    <label for="hiring_manager" class="hiring_manager">HM Name:</label>
+    <input type="text" id="hiring_manager" name="hiring_manager" placeholder="Enter Hiring-Manager" required>
 
-    <label for="hiring_manager_email">Hiring Manager Email:</label>
-    <input type="email" id="hiring_manager_email" name="hiring_manager_email" required><br>
+    <label for="hiring_manager_email" class="hiring_manager_email">HM Email:</label>
+    <input type="email" id="hiring_manager_email" name="hiring_manager_email" placeholder="Enter Hiring-Manager-Email" required><br>
 
-    <label for="role_logo">Role-logo:</label>
-    <select id="role_logo" name="role_logo" required>
-        <option value="coach-logo.webp">coach-logo</option>
-        <option value="Developer-logo.webp">developer-logo</option>
-        <option value="digitalmarketing-logo.webp">digitalmarketing-logo</option>
-        <option value="doctor-logo.webp">doctor-logo</option>
-        <option value="facilitiesboy-logo.webp">facilitiesboy-logo</option>
-        <option value="hr-logo.webp">hr-logo</option>
-        <option value="Intern-logo.webp">Intern-logo</option>
-        <option value="manager-logo.webp">manager-logo</option>
-        <option value="nurse-logo.webp">nurse-logo</option>
-        <option value="nutritionist-logo.webp">nutritionist-logo</option>
-        <option value="psychologist-logo.webp">psychologist-logo</option>
-        <option value="sales-logo.webp">sales-logo</option>
-
-    </select>
     
-    <label for="role_overview">Role Overview:</label>
-    <input id="role_overview" name="role_overview" minlength="145"  maxlength="146" required><br>
+    <label for="role_overview">Role view:</label>
+    <input id="role_overview" name="role_overview" placeholder="Enter Role-OverView" minlength="186"  maxlength="187" required><br>
 
-     
-    <label for="job_description">Job Description:</label>
-    <textarea id="job_description" name="job_description" required></textarea><br>
+    <label for="role_logo" class="role-image">Role-logo:</label>
+    <img onclick="helper()" class="role-image-logo" src="./assets/sales-icon-32.png" alt="administrator-logo"/>
+    <dialog id="myDialog">
+    <div style="display: inline;" class="myDialog-container" id="image-container"></div>
+    </dialog>
+    <div id="role-logo-div-container"></div>
+    <input type="hidden" id="role_logo" name="role_logo">
 
-    <label for="skill_required">Skills Required:</label>
-    <textarea type="text" id="skill_required" name="skill_required" required></textarea><br>
+    
 
 
+    <label for="job_description">Job Description:</label><br>
+    <textarea id="job_description" name="job_description" placeholder="Enter Job-Description" required></textarea><br>
 
-   
-    <input type="submit" value="Submit">
+    <label for="skill_required">Skills Required:</label><br>
+    <textarea type="text" id="skill_required" name="skill_required" placeholder="Enter Skill-Required" required></textarea><br>
+
+
+  <center>  <input type="submit" value="Submit" id="submit-btn"></center>
 </form>
-
 </div>
 
-<img onclick="helper()" class="role-image-logo" src="./assets/sales-icon-32.png" alt="administrator-logo"/>
-<dialog id="myDialog">
-    <div class="myDialog-container" id="image-container"></div>
-</dialog>
-
 <script>
+       var dialog = document.getElementById("myDialog");
     function helper() { 
         document.getElementById("myDialog").showModal(); 
         window.onclick = function(event) {
-            var dialog = document.getElementById("myDialog");
+         
             if (event.target == dialog) {
                 dialog.close();
             }
         }
     } 
 
-    const obj = [
+const obj = [
     {
         img: "./assets/role-icon/coach-logo.webp",
         value: "coach-logo.webp"
@@ -196,23 +176,36 @@ if ($stmt->execute()) {
         value: "sales-logo.webp"
     }
 ];
+let container = document.getElementById('image-container');
+let currentImg = null;
 
+obj.forEach((val, i) => {
+    const img = document.createElement('img');
+    img.src = val.img;
+    img.alt = val.value; 
+    container.appendChild(img);
 
-    let container = document.getElementById('image-container');
-
-    obj.forEach((val, i) => {
-        const img = document.createElement('img');
-        img.src = val.img;
-        img.alt = val.value; 
-        container.appendChild(img);
-        img.addEventListener('click', () => {
-            document.getElementById('role-icon').value = val.value;
-            document.getElementById('role-icon-img').src = val.img;
-        })
+    img.addEventListener('click', () => {
+        const role_img = document.createElement('img');
+        role_img.style.width = "1rem"; 
+        role_img.style.height = "1rem"; 
+        role_img.src = val.img;
+        role_img.alt = val.value;
+     const values=   document.getElementById('role_logo').value = val.value;
+        if (currentImg) {
+            document.getElementById('role-logo-div-container').replaceChild(role_img, currentImg);
+        } else {
+            document.getElementById('role-logo-div-container').appendChild(role_img);
+        }
+        currentImg = role_img; 
+        dialog.close();
     });
-</script>
+});
+
 
 </script>
+
+
 
 
 </body>

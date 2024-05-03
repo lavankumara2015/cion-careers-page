@@ -1,0 +1,78 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
+* {
+  font-family: "Source Sans 3", sans-serif;
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+html {
+  font-size: 5.31vw;
+  /* font-size:22px */
+}
+:root {
+  --brandClr: #802a8f;
+  --pinkClr: #f0d0dd;
+  --pinkClr2: #f0d0dc;
+}
+
+@media screen and (min-width: 768px) {
+  html {
+    font-size: 2.76vw;
+    /* font-size: 53px; */
+  }
+  .hm-login-h1{
+    font-size: 0.6rem;
+    text-align: center;
+
+  }
+  .login-main-container{
+    width: 10rem;  
+    /* border: 0.05rem solid var(--brandClr ); */
+    height: 9rem;
+    margin-left: 13rem;
+    margin-top: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 197, 206, 0.622);
+    border-radius: 0.2rem;
+
+  }
+  form label{
+    font-size: 0.5rem;
+    font-weight: 600;
+    color: var(--brandClr); 
+  }
+  form input{
+    padding: 0.2rem;
+    border: 0.03rem solid var(--brandClr);
+    border-radius: 0.1rem;
+    width: 7rem;
+    height: 1rem;
+    outline: none;
+  }
+
+  #hm-name{
+    position: relative;
+    bottom: 0.3rem;
+  }
+  .hm-email-id{
+   position: relative;
+   bottom: 0.4rem;
+  }
+  #hm-email-id{
+    position: relative;
+    bottom: 0.8rem;
+  }
+  #login-btn{
+    padding: 0.05rem 0.6rem !important;
+    background-color: var(--brandClr);
+    color: white;
+    position: relative;
+    left: 2rem;
+    bottom: 0.4rem;
+    width: 2.5rem;
+    cursor: pointer;
+  }
+
+}
