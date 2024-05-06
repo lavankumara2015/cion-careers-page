@@ -13,11 +13,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $stmt->execute();
     $result = $stmt->get_result();
 
-    if ($result->num_rows > 0) {        
+    if ($result->num_rows > 0) {         
         session_start();
         $_SESSION['inputName'] =  $inputName;
-        $_SESSION['inputEmail'] =  $inputEmail; 
-        header("Location: viewApplications.php");       
+        $_SESSION['inputEmail'] =  $inputEmail;
+        header("Location: ../components/viewApplications.php");       
         exit();
     } else {
         $errorMessage = "Invalid Credentials";
@@ -33,8 +33,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <title>Login Page</title>
     <!-- <meta http-equiv="refresh" content="3"> -->
     <link rel="shortcut icon" href="./assets/favicon.webp" type="image/x-icon">
-    <link rel="stylesheet" href="./index3.css">
-    <link rel="stylesheet" href="./components/navBar/navbar.css">
+    <link rel="stylesheet" href="./styles/index3.css">
+    <link rel="stylesheet" href="./styles/navbar.css">
+
 </head>
 <body>
     <?php include("./components/navBar/navBar.php") ?>
@@ -42,15 +43,17 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <form method="post" action="">
         <h1 class="hm-login-h1">Hiring Manager Login</h1>
 
-            <label for="hm-name">HM Name :</label><br>
-            <input type="text" name="hm-name" id="hm-name" placeholder="Enter HM name" required><br>
-            <label for="hm-email-id" class="hm-email-id">HM email-id :</label><br>
-            <input type="email" name="hm-email-id" id="hm-email-id" placeholder="Enter your email" required><br>
+            <label for="hm-name">Name :</label><br>
+            <input type="text" name="hm-name" id="hm-name" placeholder="Enter Name" required><br>
+            <label for="hm-email-id" class="hm-email-id">Email-id :</label><br>
+            <input type="email" name="hm-email-id" id="hm-email-id" placeholder="Enter Your Email" required><br>
             <?php if($errorMessage !== ""): ?>
             <h5 style="font-size: 0.3rem; color:red; position:relative; bottom:0.5rem"><?= $errorMessage ?></h5>
             <?php endif; ?>
             <input type="submit" value="Login" id="login-btn">
         </form>
     </div>
+            </br><br/>
+            <?php include("./components/footer/footer.php")?>
 </body>
 </html>

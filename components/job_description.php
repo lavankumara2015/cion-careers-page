@@ -7,9 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>careers</title>
     <link rel="shortcut icon" href="/assets/favicon.webp" type="image/x-icon">
-    <link rel="stylesheet" href="/index.css">
-    <link rel="stylesheet" href="./navBar/navbar.css">
-    <link rel="stylesheet" href="./applicationSubmit/applicationSumbit.css">
+    <link rel="stylesheet" href="../styles/index.css">
+    <link rel="stylesheet" href="../styles/navbar.css">
+    <link rel="stylesheet" href="../styles/applicationSumbit.css">
 </head>
 <body>
 
@@ -129,6 +129,8 @@ $_SESSION['department'] = $department;
         
     </div>
     </dialog>
+        </br>
+    <?php include("./footer/footer.php"); ?>
     <script>
 
         const dialog = document.getElementById("myDialog")

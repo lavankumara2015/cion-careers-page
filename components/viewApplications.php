@@ -1,28 +1,24 @@
 <html>
 
 <head>
-    <link rel="shortcut icon" href="./assets/favicon.webp" type="image/x-icon">
+    <link rel="shortcut icon" href=".././assets/favicon.webp" type="image/x-icon">
     <title>View Application Details</title>
-    <link rel="stylesheet" href="./index3.css">
-    <link rel="stylesheet" href="./components/navBar/navbar.css">
+    <link rel="stylesheet" href="../styles/index3.css">
+    <link rel="stylesheet" href="../styles/navbar.css">
     <style>
         table {
             width: 100%;
             border-collapse: collapse;
-
         }
-
         th,
         td {
-            border: 1px solid black;
-            padding: 8px;
+            border: 0.018rem solid black;
+            padding: 0.15rem;
             text-align: left;
         }
-
         th {
             background-color: #f2f2f2;
         }
-
         h1 {
             margin: 0.5rem;
             color: #802a8f;
@@ -36,19 +32,17 @@
 </html>
 
 <?php
-include("./components/connectDB.php");
+include("./connectDB.php");
 
 
 session_start();
 $email = $_SESSION['inputEmail'];
 $name = $_SESSION['inputName'];
-
-
 $sql = "SELECT * FROM applicants AS a JOIN careers AS b ON a.department = b.department WHERE hiring_manager = '$name' AND hiring_manager_email = '$email' ;";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
-    include("./components/navBar/navBar.php");
+    include("./navBar/navBar.php");
     echo '<h1>Job Applicants</h1>';
     echo '<table>';
     echo '<tr>';
@@ -76,7 +70,7 @@ if ($result->num_rows > 0) {
         echo '<td>' . $row["mobile_number"] . '</td>';
         echo '<td>' . $row["reason_for_applying"] . '</td>';
         echo '<td>' . $row["CV_uploaded"] . '</td>';
-        echo '<td><a href="./components/applicationSubmit/uploads/' . $row["CV_uploaded"] . '" download>Download CV</a></td>';
+        echo '<td><a href="./applicationSubmit/uploads/' . $row["CV_uploaded"] . '" download>Download CV</a></td>';
         echo '<td>' . $row["department"] . '</td>';
         echo '</tr>';
     }

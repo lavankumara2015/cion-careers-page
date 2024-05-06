@@ -14,7 +14,16 @@ html {
   --pinkClr: #f0d0dd;
   --pinkClr2: #f0d0dc;
 }
+::-webkit-scrollbar{
+  width: 0.15rem;
+  height: 2rem !important;
+}
 
+::-webkit-scrollbar-thumb{
+  background-color:var(--brandClr) !important;
+border-radius: 1rem;
+
+}
 @media screen and (min-width: 768px) {
   html {
     font-size: 2.76vw;
@@ -50,6 +59,7 @@ html {
     width: 7rem;
     height: 1rem;
     outline: none;
+    font-size: 0.4rem;
   }
 
   #hm-name{
@@ -73,6 +83,7 @@ html {
     bottom: 0.4rem;
     width: 2.5rem;
     cursor: pointer;
+    font-size: 0.5rem;
   }
 
 }

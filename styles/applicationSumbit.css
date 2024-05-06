@@ -15,7 +15,7 @@
 .cv_uploaded {
     font-size: 0.45rem;
     font-weight: 600;
-    padding: 1rem; 
+    padding: 0.8rem; 
     margin: 0.6rem 0; 
     width: 100%; 
     box-sizing: border-box; 
@@ -42,12 +42,11 @@ form{
     margin-left: 0.52rem;
 }
 #highest_graduation{
-    margin-right: 0.9rem;
     position: relative;
     right: 0.8rem;
 }
 #graduation_year{
-    margin-right: 1.5rem;
+   
     position: relative;
     right: 0.16rem;
 }
@@ -55,7 +54,7 @@ form{
     margin-left: -0.35rem !important;
 }
 #current_address{
-    margin-right: 0.9rem;
+
     position: relative;
     right: 0.15rem;
 }
@@ -65,21 +64,21 @@ form{
     right: 0.035rem;
 }
 #reason_for_applying{
- 
     width: 10rem;
     height: 3rem;
-    margin-left: 1.05rem;
+    margin-left: 0.5rem;
 }
 #cv_uploaded{
     margin-left: 0.97rem;
     
 }
 .form-btn{
+    border-radius: 0.1rem;
     border: none !important;
     background-color: var(--brandClr);
     color: white;
-    font-size: 0.5rem;
-    padding: 0rem !important;
+    font-size: 0.45rem;
+    padding: 0.1rem !important;
     margin-top: 1rem;
     margin-bottom: 1rem;
     width: 3rem !important;

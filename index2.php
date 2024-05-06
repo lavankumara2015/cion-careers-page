@@ -24,8 +24,11 @@ $stmt = $conn->prepare($sql);
 $stmt->bind_param("ssssssssssssssss", $department, $role, $job_id, $location, $experience, $qualification,$reports_to, $time_of_work, $salary,$company_profile, $skill_required,$job_description,$hiring_manager,$hiring_manager_email,$role_logo,$role_overview);
 
 if ($stmt->execute()) {
-    echo '<script>window.location.href = "http://localhost:3000/components/applicationSubmit/applicationDone.php";</script>';
-
+    
+    header(
+        "Location: ./components/applicationSubmit/requirementsSuccess.php"
+    );
+    
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
@@ -40,8 +43,8 @@ if ($stmt->execute()) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Roles-details</title>
     <link rel="shortcut icon" href="./assets/favicon.webp" type="image/x-icon">
-    <link rel="stylesheet" href="./index2.css">
-    <link rel="stylesheet" href="./components/navBar/navbar.css">
+    <link rel="stylesheet" href="./styles/index2.css">
+    <link rel="stylesheet" href="./styles/navbar.css">
 
 </head>
 <body>
@@ -52,68 +55,67 @@ if ($stmt->execute()) {
 
 <div class="role-details-container">
 <form action="" method="POST" enctype="multipart/form-data">
-    <label for="department" >Department:</label>
+    <label for="department">Department:<span style="color: red;">*</span></label>
     <input type="text" id="department" name="department" placeholder="Enter Department" required>
 
-    <label for="role" class="role">Role:</label>
+    <label for="role" class="role">Role:<span style="color: red;">*</span></label>
     <input type="text" id="role" name="role" placeholder="Enter Role" required><br>
 
-    <label for="job_id">Job ID:</label>
+    <label for="job_id">Job ID:<span style="color: red;">*</span></label>
     <input type="text" id="job_id" name="job_id" placeholder="Enter Job-id" required>
 
-    <label for="location" class="location">Location:</label>
+    <label for="location" class="location">Location:<span style="color: red;">*</span></label>
     <input type="text" id="location" name="location" placeholder="Enter Location" required><br>
 
-    <label for="experience">Experience:</label>
+    <label for="experience">Experience:<span style="color: red;">*</span></label>
     <input type="text" id="experience" name="experience" placeholder=" Enter Experience" required>
 
-    <label for="qualification" class="qualification">Qualification:</label>
+    <label for="qualification" class="qualification">Qualification:<span style="color: red;">*</span></label>
     <input type="text" id="qualification" name="qualification" placeholder="Enter Qualification" required><br>
 
-    <label for="reports_to" class="reports_to">Reports To:</label>
+    <label for="reports_to" class="reports_to">Reports To:<span style="color: red;">*</span></label>
     <input type="text" id="reports_to" name="reports_to" placeholder="Enter Report-To">
 
-    <label for="time_of_work" class="time_of_work">Time of Work:</label>
+    <label for="time_of_work" class="time_of_work">Time of Work:<span style="color: red;">*</span></label>
     <input type="text" id="time_of_work" name="time_of_work" required placeholder="Enter Time-of-work"><br>
 
-    <label for="salary">Salary:</label>
+    <label for="salary">Salary:<span style="color: red;">*</span></label>
     <input type="text" id="salary" name="salary" placeholder="Enter Salary" required>
   
-    <label for="company_profile" class="company_profile">Company Profile:</label>
+    <label for="company_profile" class="company_profile">Company Profile:<span style="color: red;">*</span></label>
     <input id="company_profile" name="company_profile" placeholder="Enter Company-Profile" required><br>
 
-    <label for="hiring_manager" class="hiring_manager">HM Name:</label>
+    <label for="hiring_manager" class="hiring_manager">Hiring Manage<br><span class="hm-class">Name:</span> <span style="color: red; ">*</span></label>
     <input type="text" id="hiring_manager" name="hiring_manager" placeholder="Enter Hiring-Manager" required>
 
-    <label for="hiring_manager_email" class="hiring_manager_email">HM Email:</label>
+    <label for="hiring_manager_email" class="hiring_manager_email">Hiring Manager<br><span class="hme-class">Name:</span> <span style="color: red; ">*</span></label>
     <input type="email" id="hiring_manager_email" name="hiring_manager_email" placeholder="Enter Hiring-Manager-Email" required><br>
 
     
-    <label for="role_overview">Role view:</label>
+    <label for="role_overview" class="role_overview">Role View:<span style="color: red;">*</span></label>
     <input id="role_overview" name="role_overview" placeholder="Enter Role-OverView" minlength="186"  maxlength="187" required><br>
 
-    <label for="role_logo" class="role-image">Role-logo:</label>
-    <img onclick="helper()" class="role-image-logo" src="./assets/sales-icon-32.png" alt="administrator-logo"/>
+    <label for="role_logo" class="role-image">Role Logo:<span style="color: red;">*</span></label>
+    <img onclick="helper()" class="role-image-logo" src="./assets/down-arrow-icon.png" alt="administrator-logo"/>
     <dialog id="myDialog">
     <div style="display: inline;" class="myDialog-container" id="image-container"></div>
     </dialog>
     <div id="role-logo-div-container"></div>
     <input type="hidden" id="role_logo" name="role_logo">
 
-    
 
-
-    <label for="job_description">Job Description:</label><br>
+    <label for="job_description" class="job_description">Job Description:<span style="color: red;">*</span></label><br>
     <textarea id="job_description" name="job_description" placeholder="Enter Job-Description" required></textarea><br>
 
-    <label for="skill_required">Skills Required:</label><br>
+    <label for="skill_required" class="skill_required">Skills Required:<span style="color: red;">*</span></label><br>
     <textarea type="text" id="skill_required" name="skill_required" placeholder="Enter Skill-Required" required></textarea><br>
 
 
-  <center>  <input type="submit" value="Submit" id="submit-btn"></center>
+  <center>  <input style="position: relative; bottom:5rem" type="submit" value="Submit" id="submit-btn"></center>
 </form>
-</div>
 
+</div>
+<?php include("./components/footer/footer.php")?>
 <script>
        var dialog = document.getElementById("myDialog");
     function helper() { 
@@ -176,6 +178,7 @@ const obj = [
         value: "sales-logo.webp"
     }
 ];
+
 let container = document.getElementById('image-container');
 let currentImg = null;
 
@@ -189,6 +192,7 @@ obj.forEach((val, i) => {
         const role_img = document.createElement('img');
         role_img.style.width = "1rem"; 
         role_img.style.height = "1rem"; 
+        role_img.style.marginLeft="0.55rem";
         role_img.src = val.img;
         role_img.alt = val.value;
      const values=   document.getElementById('role_logo').value = val.value;

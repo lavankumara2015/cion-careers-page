@@ -56,8 +56,9 @@ font-weight: 600;
   }
  .role-details-container{ 
   width: 80%;
+  height: 210vh;
   margin-left: 4rem;
-  box-shadow: 0 0.0377rem 0.41rem 0 rgba(0, 0, 0, 0.07);
+  box-shadow: 0 0.0377rem 0.41rem 0 rgba(0, 0, 0, 0.08);
   padding: 1.5rem;   
   margin-top: 1.2rem;
   margin-bottom: 2rem;
@@ -68,11 +69,12 @@ font-weight: 600;
     margin: 0.8rem 0rem 0.5rem 2rem;
   }
   .role-image-logo{
-    width: 1rem;
+    width: 0.7rem;
     cursor: pointer;
     position: relative;
-        left: 0.35rem;
-        top: 0.5rem;
+    left: 4.2rem;
+    bottom: 4.3rem;
+    z-index: 9999;
   }
  
 #myDialog{
@@ -95,22 +97,23 @@ font-weight: 600;
   .myDialog-container img{
     width: 1rem;
     height: 1rem;
-   margin: 0.15rem;
-   cursor: pointer;
+    margin: 0.15rem;
+    cursor: pointer;
     }
     .myDialog-container img:hover{
       background-color: rgb(240, 206, 211);
     }
     #role-logo-div-container{
-      width: 1.2rem;
-      height: 1.2rem;
-      border: 1px solid var(--brandClr);
+      width: 3rem;
+      height: 1.4rem;
+      border: 0.03rem solid var(--brandClr);
       position: relative;
-      left: 6rem;
-      bottom: 0.9rem;
+      left: 19.53rem;
+      bottom: 5.8rem;
       display: flex;
       align-items: center;
-      justify-content: center;
+      border-radius: 0.1rem;
+      
     }
     form input{
       padding: 0.2rem;
@@ -126,10 +129,10 @@ font-weight: 600;
       margin-left: 3.7rem;
     }
     .role{
-      margin-left: 2rem;
+      margin-left: 2.03rem;
     }
     #job_id{
-      margin-left: 2.2rem;
+      margin-left: 2.25rem;
     }
     #location{
       margin-left: 2.5rem;
@@ -145,7 +148,7 @@ font-weight: 600;
       margin-left: 1.3rem;
     }
     .qualification{
-      margin-left: 2rem;
+      margin-left: 1.89rem;
     }
 
     #reports_to{
@@ -156,7 +159,7 @@ font-weight: 600;
       margin-left: 1.2rem;
     }
     .time_of_work{
-      margin-left: 1.97rem;
+      margin-left: 1.89rem;
     }
     #salary{
       margin-left: 2.25rem;
@@ -166,25 +169,65 @@ font-weight: 600;
       right: 0.3rem;
     }
     .company_profile{
-      margin-left: 1.95rem;
+      margin-left: 1.85rem;
     }
    
     #hiring_manager{
-    margin-left: 1.25rem;
+    margin-left: 3.02rem;
+    position: relative;
+    bottom: 1.2rem;
     }
+    .hm-class{
+    position: relative;
+    bottom: 0.7rem;
+    left: 0.8rem;
+    }
+    .hm-class+span{
+      position: relative;
+      left: 0.62rem;
+      bottom: 0.66rem;
+    }
+    .hme-class{
+     margin-left: 13.8rem;
+     position: relative;
+     bottom: 1.25rem;
+    }
+    .hme-class+span{
+      position: relative;
+      bottom: 1.25rem;
+      right: 0.2rem;
+     }
     #hiring_manager_email{
-    margin-left:  2.2rem;
+    margin-left:  2.25rem;
+   position: relative;
+   bottom: 3.2rem;
+   left: 0.88rem;
     }
     .hiring_manager_email{
       margin-left: 2rem;
+    position: relative;
+    bottom: 1.5rem;
     }
     #role_overview{
-      margin-left: 1.3rem;
+      margin-left: 1.25rem;
+      position: relative;
+      bottom: 2.75rem;
+    }
+    .role_overview{
+      position: relative;
+      bottom: 2.75rem;
     }
     .role-image{
       position: relative;
-      top: 0.2rem;
+   
+      margin-left: 13.8rem;
+      bottom: 4.5rem;
     }
+    .skill_required,.job_description{
+position: relative;
+bottom: 5rem;
+    }
+    
   
     form textarea{
       border: 0.009rem solid var(--brandClr);
@@ -197,12 +240,14 @@ font-weight: 600;
    height: 5rem;
    margin-top: 0.2rem;
    font-size: 0.5rem;
+   position: relative;
+   bottom: 5rem;
     }
     #submit-btn{
     background-color: var(--brandClr);
     color: white;
     font-size: 0.55rem;
-    padding: 0.20rem !important;
+    padding: 0.15rem !important;
     margin-top: 1.5rem;
     cursor: pointer;
     width: 3.5rem;
