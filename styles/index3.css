@@ -62,17 +62,17 @@ border-radius: 1rem;
     font-size: 0.4rem;
   }
 
-  #hm-name{
+  #hm-password{
     position: relative;
-    bottom: 0.3rem;
+    bottom: 0.8rem;
   }
-  .hm-email-id{
-   position: relative;
-   bottom: 0.4rem;
+  .hm-password{
+    position: relative;
+    bottom: 0.35rem;
   }
   #hm-email-id{
     position: relative;
-    bottom: 0.8rem;
+    bottom: 0.45rem;
   }
   #login-btn{
     padding: 0.05rem 0.6rem !important;

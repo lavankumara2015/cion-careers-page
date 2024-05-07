@@ -3,7 +3,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!-- <meta http-equiv="refresh" content="5"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>careers</title>
     <link rel="shortcut icon" href="/assets/favicon.webp" type="image/x-icon">
@@ -21,7 +20,7 @@ $id = $_GET['id'];
 
 
 
-$sql = "SELECT department,role,job_id,location,experience,qualification,reports_to,time_of_work,salary,company_profile,skill_required,job_description FROM careers WHERE id = $id";
+$sql = "SELECT department,role,role_id,location,experience,qualification,reports_to,time_of_work,salary,company_profile,skill_required,job_description FROM careers WHERE id = $id";
 
 $result = $conn->query($sql);
 $department = null ;
@@ -29,7 +28,7 @@ if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()){
         $department = $row["department"];
         $role = $row["role"];
-        $job_id = $row["job_id"];
+        $role_id = $row["role_id"];
         $location = $row["location"];
         $experience = $row["experience"];
         $qualification = $row["qualification"];
@@ -42,6 +41,9 @@ if ($result->num_rows > 0) {
 
 session_start();
 $_SESSION['department'] = $department;
+$_SESSION['role']=$role;
+$_SESSION['role_id']=$role_id;
+
 
 ?>
 
@@ -58,8 +60,8 @@ $_SESSION['department'] = $department;
             <p><?php echo $role ?></p>
         </div>
         <div class="vaccine-container__job-id">
-            <h2>Job-id</h2>
-            <p><?php echo $job_id ?></p>
+            <h2>Role-id</h2>
+            <p><?php echo $role_id ?></p>
         </div>
         <div class="vaccine-container__location">
             <h2>Location</h2>

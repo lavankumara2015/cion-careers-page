@@ -2,7 +2,7 @@
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   include("../connectDB.php"); 
-$name = htmlspecialchars($_POST['name'] ?? '');
+$applicant_name = htmlspecialchars($_POST['name'] ?? '');
 $DOB = htmlspecialchars($_POST['dob'] ?? '');
 $highest_graduation = htmlspecialchars($_POST['highest_graduation'] ?? '');
 $graduation_year = htmlspecialchars($_POST['graduation_year'] ?? '');
@@ -10,6 +10,7 @@ $CGPA = htmlspecialchars($_POST['cgpa'] ?? '');
 $current_address = htmlspecialchars($_POST['current_address'] ?? '');
 $mobile_number = htmlspecialchars($_POST['mobile_number'] ?? '');
 $reason_for_applying = htmlspecialchars($_POST['reason_for_applying'] ?? '');
+$experience =htmlspecialchars($_POST['experience']?? '');
 $CV_uploaded = htmlspecialchars($_FILES['cv_uploaded']['name'] ?? '');
 $target_dir = "uploads/";
 $target_file = $target_dir . basename($_FILES["cv_uploaded"]["name"]);
@@ -17,11 +18,14 @@ move_uploaded_file($_FILES["cv_uploaded"]["tmp_name"], $target_file);
 
 
 session_start();
-
 $department = $_SESSION['department'] ?? '';
-$sql = "INSERT INTO applicants (name, DOB, highest_graduation, graduation_year, CGPA, current_address, mobile_number, reason_for_applying, CV_uploaded,department) VALUES (?,?, ?, ?, ?, ?, ?, ?, ?, ?)";
+$role = $_SESSION['role'] ?? '';
+$role_id = $_SESSION['role_id'] ?? '';
+
+
+$sql = "INSERT INTO applicants (role_id, role,department,applicant_name,mobile_number,years_of_experience,DOB,highest_graduation, graduation_year, CGPA, current_address, reason_for_applying, CV_uploaded) VALUES (?,?,?, ?, ?, ?, ?, ?, ?, ?, ?,?,?)";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("sssissssss", $name, $DOB, $highest_graduation, $graduation_year, $CGPA, $current_address, $mobile_number, $reason_for_applying, $CV_uploaded,$department);
+$stmt->bind_param("sssssssssssss",$role_id,$role,$department,$applicant_name,$mobile_number,$experience,$DOB, $highest_graduation, $graduation_year, $CGPA, $current_address ,$reason_for_applying, $CV_uploaded);
 
 if ($stmt->execute()) {
      header(
@@ -58,7 +62,10 @@ if ($stmt->execute()) {
     <input type="text" id="current_address" placeholder="Enter Current-Address" name="current_address" required><br>
 
     <label for="mobile_number" class="mobile_number">Mobile Number<p style="color:red; display:inline-block;">*</p></label>
-    <input type="tel" id="mobile_number" name="mobile_number" placeholder="Enter Mobile-Number" maxlength="10" required><br>
+    <input type="tel" id="mobile_number" name="mobile_number" placeholder="Enter Mobile-Number" minlength="10" maxlength="10" required><br>
+
+    <label for="experience" class="mobile_number">Experience<p style="color:red; display:inline-block;">*</p></label>
+    <input type="tel" id="experience" name="experience" placeholder="Enter Experience" maxlength="2" required  style="margin-left: 0.83rem;"><br>
 
     <label for="reason_for_applying" class="reason_for_applying">Reason for Applying <p style="color:red; display:inline-block;">*</p></label></br>
     <textarea style="resize: none;" id="reason_for_applying" name="reason_for_applying" placeholder="Enter Reason-For-Applying" required></textarea><br>

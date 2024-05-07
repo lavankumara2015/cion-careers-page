@@ -25,7 +25,7 @@ form input , textarea{
     padding: 0.15rem;
     width: 5rem;
     border: 0.05rem solid var(--brandClr);
-    border-radius: 0.2rem;
+    border-radius: 0.1rem;
     font-size: 0.4rem;
     outline: none !important;
    
@@ -123,7 +123,7 @@ bottom: 0.1rem;
         padding: 0.2rem;
         width: 5rem;
         border: 0.05rem solid var(--brandClr);
-        border-radius: 0.2rem;
+        border-radius: 0.1rem;
         margin-top: 0.5rem;
     }
     #name{
